@@ -1,0 +1,108 @@
+@font-face{
+	src:url('./ds.ttf');
+	font-family: ds;
+}
+
+@font-face{
+	src:url('./mr.ttf');
+	font-family: mr;
+}
+@font-face{
+	src:url('./sr.ttf');
+	font-family: sr;
+}
+
+body{
+	background-color:#01579B ;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+  font-family: sr;
+}
+.header{
+	color:#F57F17;
+	font-family: sr;
+	font-size: 65px;
+	font-weight: bold;
+	position: absolute;
+	margin-top: 40px;
+	margin-left: 200px;
+	transform:rotateZ(-10deg);
+}
+
+.for-a-user{
+	overflow: hidden;
+	position: absolute;
+	margin-top: 200px;
+	margin-left: 100px;
+	width:30%;
+	background-color: #B71C1C;
+	color: white;
+	box-shadow: 2px 2px 2px 2px gray;
+}
+
+.chat-name{
+	margin:20px;
+	outline: 0px;
+	border:0px;
+	color:white;
+	padding: 10px;
+	font-size: 40px;
+	font-family: sr;
+	border-bottom: 2px solid black;
+	width:92%;
+	align:center;
+	background-color: inherit;
+}
+
+.chat-textarea{
+	padding: 10px;
+	font-size: 40px;
+	margin:20px;
+	font-family: sr;
+	margin-top: 0px;
+	outline: 0px;
+	border:0px;
+	color:white;
+	border-bottom: 2px solid black;
+	width:92%;
+	height: 300px;
+	align:center;
+	background-color: inherit;
+}
+
+
+.chat-messages{
+	position: absolute;
+	float: right;
+	margin-top: 100px;
+	background-image: url('msg.jpg');
+	margin-left: 57%;
+	width:30%;
+	height:700px;
+	box-shadow: 2px 2px 2px 2px gray;
+	overflow-y:scroll; 
+}
+
+
+.chat-status{
+	margin:20px;
+	outline: 0px;
+	color:white;
+	padding: 10px;
+	font-size: 26px;
+	border-bottom: 2px solid black;
+	width:88%;
+	text-align:center;
+	font-family: ds;
+}
+
+.chat-message{
+	font-size: 31px;
+	margin-left: 20px;
+	margin-top: 10px;
+	color: white;
+	font-family: sr;
+	background-color: inherit;
+}

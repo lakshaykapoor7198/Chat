@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>Flash Chat</title>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' type='text/css' href='index.css'>
+	<link rel="icon" href="logo.png" type="image/x-icon">
+	<script type="text/javascript" src='http://localhost:7777/socket.io/socket.io.js'></script>
+</head>
+<body>
+	<div class='header'>FlashChat</div>
+	<div class='for-a-user'>
+		<input type='text' name='name' class='chat-name' placeholder='Name...'><br>
+		<textarea name='textarea' class='chat-textarea' placeholder='Message...'></textarea><br>
+		<div class='chat-status' id='status-id'>What's On Ur Mind..</div>
+	</div>
+	<div class='chat-messages'></div>
+	<script type="text/javascript">
+
+		function getNode(s){
+			return document.querySelector(s);
+		}
+
+		var chatname=getNode('.chat-name');
+		var textarea=getNode('.chat-textarea');
+		var messages=getNode('.chat-messages');
+		var statusi=document.getElementById('status-id');
+		var charDefault=statusi.innerHTML;
+		try{
+			var socket=io.connect('http://localhost:7777');
+		}
+		catch(e){
+			console.log('Not connected');
+		}
+
+		function setStatus(s){
+			statusi.innerHTML=s;
+			var delay=setTimeout(function(){
+				statusi.innerHTML=charDefault;
+				clearInterval(delay);
+			},3000);
+		}
+
+		if (socket!==undefined){
+			textarea.addEventListener('keydown',function(){
+				if (event.which==13&& event.shiftKey==false){
+					var name=chatname.value;
+					var message=textarea.value;
+					socket.emit('input',{'name':name,'message':message});
+					console.log('Inserted baby!!!!');
+				}
+			});
+
+
+			socket.on('status',function(data){
+				if(data==='clear'){
+					setStatus('Data  Inserted');
+					textarea.value='';
+				}
+				else{
+					setStatus(data);
+				}
+			});
+
+			socket.on('output',function(data){
+				if(data.length){
+					for (var i=0;i<data.length;i++){
+						var message=document.createElement('div');
+						message.setAttribute('class','chat-message');
+						message.textContent=data[i].name+" : "+data[i].message;
+
+						messages.appendChild(message);
+						messages.insertBefore(message,messages.firstChild);
+					}
+				}
+			});
+		}
+
+	</script>
+</body>
+</html>
