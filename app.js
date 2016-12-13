@@ -6,7 +6,7 @@ var bodyParser=require('body-parser');
 var expressValidator=require('express-validator');
 var server=require('http').createServer(app);
 var client=require('socket.io').listen(server);
-server.listen(7777);
+server.listen(process.env.PORT||7777);
 
 
 app.use(bodyParser.urlencoded({extended:true}));
