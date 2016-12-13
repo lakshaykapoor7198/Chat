@@ -1,7 +1,7 @@
 {
-  "name": "chat1",
+  "name": "flashchat",
   "version": "1.0.0",
-  "description": "",
+  "description": "Just playing with Node Js",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -16,5 +16,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lakshay",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lakshaykapoor7198/Chat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lakshaykapoor7198/Chat/issues"
+  },
+  "homepage": "https://github.com/lakshaykapoor7198/Chat#readme"
 }

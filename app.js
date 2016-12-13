@@ -19,7 +19,7 @@ app.get('/',function(req,res){
 });
 
 
-MongoClient.connect('mongodb://localhost:27017/chat1',function(err,db){
+MongoClient.connect('mongodb://admin:admin@ds133348.mlab.com:33348/chat1',function(err,db){
 	if (err) {
 		console.log('Not able to connect to database');
 	}
@@ -49,7 +49,7 @@ MongoClient.connect('mongodb://localhost:27017/chat1',function(err,db){
 			}
 			else{
 				client.emit('output',[data]);
-				console.log([data]);
+				//console.log([data]);
 				var newmsg={
 					'name':name,
 					'message':message
