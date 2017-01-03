@@ -19,7 +19,7 @@ app.get('/',function(req,res){
 });
 
 
-MongoClient.connect('mongodb://admin:admin@ds133348.mlab.com:33348/chat1',function(err,db){
+MongoClient.connect('mongodb://xxxxx:xxxxx@dsxxxxxx.mlab.com:xxxxx/chat1',function(err,db){
 	if (err) {
 		console.log('Not able to connect to database');
 	}
